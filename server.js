@@ -55,6 +55,8 @@ expressApp.get("/testingplace", (req, res) => {
     res.sendFile(GetPublicFile("testing.html"));
 });
 
+expressApp.use("/public/gallery", express.static(GetPublicFile("gallery")));
+
 
 // -- 404 PAGE --
 expressApp.use("*", (req, res) => {

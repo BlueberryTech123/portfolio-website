@@ -6,6 +6,17 @@ body {
     font-family: "Lato";
 }
 
+section {
+    padding: 100px;
+}
+
+h1, h2, h3, h4, h5 {
+    font-weight: bold;
+}
+h1 {
+    font-size: 69px;
+}
+
 button {
     font-family: "Lato";
     font-weight: bold;
@@ -18,6 +29,13 @@ nav {
     height: 70px;
     background-color: rgba(69, 69, 69, 0.5);
     padding: 0px 30px 0px 30px;
+}
+.section-secondary {
+    background-color: rgba(69, 69, 69, 0.5);
+}
+.underlined {
+    text-decoration: #ff7b00 dashed underline;
+    text-underline-offset: 15px;
 }
 button {
     background: transparent;
@@ -45,6 +63,19 @@ nav img {
 .important-button:hover {
     background: #ffa149;
     border-bottom: 5px solid #000;
+}
+
+.gallery-item {
+    display: inline-block;
+    width: 20vw;
+    height: 20vw;
+    background-color: #fff;
+    background-size: cover;
+}
+.caption-overlay {
+    background-color: rgba(0, 0, 0, 0.2);
+    text-align: center;
+    padding: 30px 0px 30px 0px;
 }
 
 #profile-end {
