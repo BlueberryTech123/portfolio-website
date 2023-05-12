@@ -81,9 +81,19 @@ nav img {
     background-size: cover;
 }
 .caption-overlay {
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: transparent;
+    color: transparent;
     text-align: center;
     padding: 30px 0px 30px 0px;
+    visibility: hidden;
+    transition: 300ms;
+    transform: perspective(900px) rotateX(180deg);
+}
+.gallery-item:hover .caption-overlay {
+    background-color: rgba(0, 0, 0, 0.4);
+    color: #fff;
+    visibility: visible;
+    transform: perspective(900px) rotateX(0deg);
 }
 
 #profile-end {
