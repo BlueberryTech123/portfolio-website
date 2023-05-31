@@ -36,31 +36,56 @@ expressApp.use(express.json());
 var pagesRoot = "public";
 var root = path.dirname(require.main.filename);
 
-function GetPublicFile(filename) {
+function getPublicFile(filename) {
     return root + "/" + pagesRoot + "/" + filename;
 }
 
 expressApp.get(
     "/style.css", 
-    (req, res) => { res.sendFile(GetPublicFile("style.css")); });
+    (req, res) => { res.sendFile(getPublicFile("style.css")); });
 expressApp.get(
     "/sitecomponents.js", 
-    (req, res) => { res.sendFile(GetPublicFile("sitecomponents.js")); });
+    (req, res) => { res.sendFile(getPublicFile("sitecomponents.js")); });
+expressApp.get(
+    "/background.jpg", 
+    (req, res) => { res.sendFile(getPublicFile("background.jpg")); });
 
 expressApp.get("/", (req, res) => {
-    res.sendFile(GetPublicFile("index.html"));
+    res.sendFile(getPublicFile("index.html"));
 });
 
 expressApp.get("/testingplace", (req, res) => {
-    res.sendFile(GetPublicFile("testing.html"));
+    res.sendFile(getPublicFile("testing.html"));
 });
 
-expressApp.use("/public/gallery", express.static(GetPublicFile("gallery")));
+expressApp.post("/loadgallery", (req, res) => {
+    let gallery = []
+    let galleryPath = getPublicFile("gallery");
 
+    fs.readdir(galleryPath, (err, files) => {
+        files.forEach((file) => {
+            gallery.push({
+                "image": `gallery/${file}`,
+                "title": file.replace(".png", "").replace(".jpg", "")});
+
+            console.log("R1:");
+            console.log(gallery);
+        });
+
+        res.json({
+            "gallery": gallery
+        });
+    });
+})
+
+console.log(getPublicFile("gallery"));
+console.log(__dirname + "/public/gallery");
+
+expressApp.use(express.static("public"));
 
 // -- 404 PAGE --
 expressApp.use("*", (req, res) => {
-    res.sendFile(GetPublicFile("404.html"));
+    res.sendFile(getPublicFile("404.html"));
 })
 
 expressApp.listen(port);
