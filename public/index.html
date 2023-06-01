@@ -19,7 +19,7 @@
     <script src="sitecomponents.js"></script>
     <title>Home</title>
 </head>
-<body onload="loadAllGalleryItems();">
+<body onload="loadAllGalleryItems(); loadAllSketches();">
     <div class="row invisible" id="gallery-window">
         <div class="col-2" id="information">
             <button class="important-button" onclick="closeWindow();">Exit</button><br><br>
@@ -29,9 +29,12 @@
         </div>
     </div>
 
+    <button style="position:fixed; bottom: 30px; right: 30px;" class="important-button" onclick="window.location = '#'">Back to Top</button>
+
     <nav id="navbar" class="container-fluid w-100">
         <a href="#"><button class="important-button">Home</button></a>
         <a href="#gallery"><button>Gallery</button></a>
+        <a href="#sketches"><button>Sketches</button></a>
         <a href="#about"><button>About me</button></a>
         <a href="#contact"><button>Contact me</button></a>
         <!-- <div id="profile-end">
@@ -47,10 +50,18 @@
         <br><br>
         <h5>An art student in Henry M. Gunn High School</h5>
     </section>
+
     <section class="section-secondary" id="gallery">
         <h2>Gallery</h2>
         <br><br>
     </section>
+    <section class="section-secondary" id="sketches">
+        <hr>
+        <br>
+        <h2>Sketches</h2>
+        <br><br>
+    </section>
+
     <section id="about">
         <h2>About me</h2>
         <br><br>

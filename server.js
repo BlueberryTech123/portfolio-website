@@ -77,6 +77,25 @@ expressApp.post("/loadgallery", (req, res) => {
         });
     });
 })
+expressApp.post("/loadsketches", (req, res) => {
+    let gallery = []
+    let galleryPath = getPublicFile("sketches");
+
+    fs.readdir(galleryPath, (err, files) => {
+        files.forEach((file) => {
+            gallery.push({
+                "image": `sketches/${file}`,
+                "title": file.replace(".png", "").replace(".jpg", "")});
+
+            console.log("R1:");
+            console.log(gallery);
+        });
+
+        res.json({
+            "gallery": gallery
+        });
+    });
+})
 
 console.log(getPublicFile("gallery"));
 console.log(__dirname + "/public/gallery");

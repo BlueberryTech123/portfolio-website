@@ -79,8 +79,8 @@ nav img {
 
 .gallery-item {
     display: inline-block;
-    width: 20vw;
-    height: 20vw;
+    width: 25vw;
+    height: 25vw;
     background-color: #fff;
     background-size: cover;
     background-position: center;
